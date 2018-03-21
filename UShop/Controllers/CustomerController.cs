@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UShop.Models;
+using System.Data.Entity;
 
 namespace UShop.Controllers
 {
@@ -24,7 +25,7 @@ namespace UShop.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            var model = context.Customers;
+            var model = context.Customers.Include(c => c.MembershipType).ToList();
             return View(model);
         }
 
