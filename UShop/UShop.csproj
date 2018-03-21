@@ -164,6 +164,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\MembershipType.cs" />
+    <Compile Include="Entities\Movie.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -194,6 +195,18 @@
     <Compile Include="Migrations\201803211028146_AddedBirthDateInCustomer.cs" />
     <Compile Include="Migrations\201803211028146_AddedBirthDateInCustomer.Designer.cs">
       <DependentUpon>201803211028146_AddedBirthDateInCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211059505_AddedMovie.cs" />
+    <Compile Include="Migrations\201803211059505_AddedMovie.Designer.cs">
+      <DependentUpon>201803211059505_AddedMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211104289_AddedNameToMovie.cs" />
+    <Compile Include="Migrations\201803211104289_AddedNameToMovie.Designer.cs">
+      <DependentUpon>201803211104289_AddedNameToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211105058_PopulateMovie.cs" />
+    <Compile Include="Migrations\201803211105058_PopulateMovie.Designer.cs">
+      <DependentUpon>201803211105058_PopulateMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -294,6 +307,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803211028146_AddedBirthDateInCustomer.resx">
       <DependentUpon>201803211028146_AddedBirthDateInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211059505_AddedMovie.resx">
+      <DependentUpon>201803211059505_AddedMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211104289_AddedNameToMovie.resx">
+      <DependentUpon>201803211104289_AddedNameToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211105058_PopulateMovie.resx">
+      <DependentUpon>201803211105058_PopulateMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
