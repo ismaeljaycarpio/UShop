@@ -7,13 +7,13 @@ namespace UShop.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class PopulateMovie : IMigrationMetadata
+    public sealed partial class FixMovieEntity : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateMovie));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FixMovieEntity));
         
         string IMigrationMetadata.Id
         {
-            get { return "201803211105058_PopulateMovie"; }
+            get { return "201803211222063_FixMovieEntity"; }
         }
         
         string IMigrationMetadata.Source

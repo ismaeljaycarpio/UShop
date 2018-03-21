@@ -162,7 +162,9 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Genre.cs" />
     <Compile Include="Entities\MembershipType.cs" />
     <Compile Include="Entities\Movie.cs" />
     <Compile Include="Global.asax.cs">
@@ -204,9 +206,25 @@
     <Compile Include="Migrations\201803211104289_AddedNameToMovie.Designer.cs">
       <DependentUpon>201803211104289_AddedNameToMovie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201803211105058_PopulateMovie.cs" />
-    <Compile Include="Migrations\201803211105058_PopulateMovie.Designer.cs">
-      <DependentUpon>201803211105058_PopulateMovie.cs</DependentUpon>
+    <Compile Include="Migrations\201803211222063_FixMovieEntity.cs" />
+    <Compile Include="Migrations\201803211222063_FixMovieEntity.Designer.cs">
+      <DependentUpon>201803211222063_FixMovieEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211223467_AddGenre.cs" />
+    <Compile Include="Migrations\201803211223467_AddGenre.Designer.cs">
+      <DependentUpon>201803211223467_AddGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211225549_AddForeignKeyToMovieAndGenre.cs" />
+    <Compile Include="Migrations\201803211225549_AddForeignKeyToMovieAndGenre.Designer.cs">
+      <DependentUpon>201803211225549_AddForeignKeyToMovieAndGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211226586_PopulateGenre.cs" />
+    <Compile Include="Migrations\201803211226586_PopulateGenre.Designer.cs">
+      <DependentUpon>201803211226586_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803211229014_UpdateMoviesGenre.cs" />
+    <Compile Include="Migrations\201803211229014_UpdateMoviesGenre.Designer.cs">
+      <DependentUpon>201803211229014_UpdateMoviesGenre.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -277,8 +295,12 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Movies\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -314,8 +336,20 @@
     <EmbeddedResource Include="Migrations\201803211104289_AddedNameToMovie.resx">
       <DependentUpon>201803211104289_AddedNameToMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803211105058_PopulateMovie.resx">
-      <DependentUpon>201803211105058_PopulateMovie.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803211222063_FixMovieEntity.resx">
+      <DependentUpon>201803211222063_FixMovieEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211223467_AddGenre.resx">
+      <DependentUpon>201803211223467_AddGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211225549_AddForeignKeyToMovieAndGenre.resx">
+      <DependentUpon>201803211225549_AddForeignKeyToMovieAndGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211226586_PopulateGenre.resx">
+      <DependentUpon>201803211226586_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803211229014_UpdateMoviesGenre.resx">
+      <DependentUpon>201803211229014_UpdateMoviesGenre.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
