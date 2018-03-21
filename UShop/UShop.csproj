@@ -159,15 +159,29 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\MembershipType.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201803210614459_InitialDatabaseModel.cs" />
     <Compile Include="Migrations\201803210614459_InitialDatabaseModel.Designer.cs">
       <DependentUpon>201803210614459_InitialDatabaseModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803210632586_AddMembershipType.cs" />
+    <Compile Include="Migrations\201803210632586_AddMembershipType.Designer.cs">
+      <DependentUpon>201803210632586_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803210634527_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201803210634527_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201803210634527_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803210714269_ApplyAnnotationToCustomerName.cs" />
+    <Compile Include="Migrations\201803210714269_ApplyAnnotationToCustomerName.Designer.cs">
+      <DependentUpon>201803210714269_ApplyAnnotationToCustomerName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -236,6 +250,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -248,6 +264,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803210614459_InitialDatabaseModel.resx">
       <DependentUpon>201803210614459_InitialDatabaseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803210632586_AddMembershipType.resx">
+      <DependentUpon>201803210632586_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803210634527_PopulateMembershipTypes.resx">
+      <DependentUpon>201803210634527_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803210714269_ApplyAnnotationToCustomerName.resx">
+      <DependentUpon>201803210714269_ApplyAnnotationToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

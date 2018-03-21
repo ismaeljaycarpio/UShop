@@ -1,0 +1,23 @@
+﻿@model IEnumerable<UShop.Entities.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <td>Name</td>
+        </tr>
+    </thead>
+    @foreach (var customer in Model)
+    {
+        <tr>
+            <td><a href="@Url.Action("Details", new { Id = customer.Id })">@customer.Name</a></td>
+        </tr>
+    }
+</table>
+
+
+
