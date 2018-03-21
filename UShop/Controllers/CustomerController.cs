@@ -31,7 +31,9 @@ namespace UShop.Controllers
 
         public ActionResult Details(int id)
         {
-            var model = context.Customers.SingleOrDefault(c => c.Id == id);
+            var model = context.Customers.Include(c => c.MembershipType)
+                .SingleOrDefault(c => c.Id == id);
+
             if (model == null)
                 return HttpNotFound();
 

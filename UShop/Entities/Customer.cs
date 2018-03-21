@@ -16,5 +16,7 @@ namespace UShop.Entities
 
         public MembershipType MembershipType { get; set; } //navigation property
         public byte MembershipTypeId { get; set; }
+
+        public DateTime? BirthDate { get; set; }
     }
 }
