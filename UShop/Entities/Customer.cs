@@ -15,8 +15,11 @@ namespace UShop.Entities
         public bool IsSubscribedToNewsLetter { get; set; }
 
         public MembershipType MembershipType { get; set; } //navigation property
+        
+        [Display(Name="Membership Type")]
         public byte MembershipTypeId { get; set; }
 
+        [Display(Name="Date of Birth")]
         public DateTime? BirthDate { get; set; }
     }
 }
