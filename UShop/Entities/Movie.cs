@@ -23,7 +23,7 @@ namespace UShop.Entities
 
         [Required]
         [Display(Name="Number in Stock")]
-        public int  NumberInStock { get; set; }
+        public int NumberInStock { get; set; }
 
         [Required]
         [Display(Name = "Genre")]
