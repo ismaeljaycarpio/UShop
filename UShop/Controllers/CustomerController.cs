@@ -36,8 +36,8 @@ namespace UShop.Controllers
             var membershipTypes = context.MembershipTypes.ToList(); //get membership types
             var viewModel = new NewCustomerViewModel
             {
+                Customer = new Customer(), //id initialize to zero(0)
                 MembershipTypes = membershipTypes,
-
             };
 
             return View(viewModel);

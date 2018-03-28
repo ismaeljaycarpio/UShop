@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using UShop.Models;
 
 namespace UShop.Entities
 {
@@ -21,7 +22,8 @@ namespace UShop.Entities
         [Display(Name="Membership Type")]
         public byte MembershipTypeId { get; set; }
 
-        [Display(Name="Date of Birth")]
+        [Display(Name = "Date of Birth")]
+        [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
     }
 }
