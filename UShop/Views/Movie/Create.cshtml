@@ -1,0 +1,32 @@
+﻿@model UShop.ViewModels.NewMovieViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create", "Movie", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.Name)
+        @Html.TextBoxFor(c => c.Movie.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.ReleaseDate)
+        @Html.TextBoxFor(c => c.Movie.ReleaseDate, "{0:d MMMM yyyy}", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.GenreId)
+        @Html.DropDownListFor(c => c.Movie.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(c => c.Movie.NumberInStock)
+        @Html.TextBoxFor(c => c.Movie.NumberInStock, new { @class = "form-control" })
+    </div>
+    
+    @Html.HiddenFor(c => c.Movie.Id)
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+

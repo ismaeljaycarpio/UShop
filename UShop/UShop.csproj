@@ -226,6 +226,30 @@
     <Compile Include="Migrations\201803211229014_UpdateMoviesGenre.Designer.cs">
       <DependentUpon>201803211229014_UpdateMoviesGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803271448538_ModifiedMOvieAttributes.cs" />
+    <Compile Include="Migrations\201803271448538_ModifiedMOvieAttributes.Designer.cs">
+      <DependentUpon>201803271448538_ModifiedMOvieAttributes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271450230_ModifiedMovie.cs" />
+    <Compile Include="Migrations\201803271450230_ModifiedMovie.Designer.cs">
+      <DependentUpon>201803271450230_ModifiedMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271526496_removedtemprequired.cs" />
+    <Compile Include="Migrations\201803271526496_removedtemprequired.Designer.cs">
+      <DependentUpon>201803271526496_removedtemprequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271542287_addGETDATEfunction.cs" />
+    <Compile Include="Migrations\201803271542287_addGETDATEfunction.Designer.cs">
+      <DependentUpon>201803271542287_addGETDATEfunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803271618452_removedrequiredinmovies.cs" />
+    <Compile Include="Migrations\201803271618452_removedrequiredinmovies.Designer.cs">
+      <DependentUpon>201803271618452_removedrequiredinmovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803280331197_AddedValidationInMovieModel.cs" />
+    <Compile Include="Migrations\201803280331197_AddedValidationInMovieModel.Designer.cs">
+      <DependentUpon>201803280331197_AddedValidationInMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -233,6 +257,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\NewMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\UShopDB.mdf" />
@@ -299,6 +324,7 @@
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Movie\Details.cshtml" />
     <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Movie\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Movies\" />
@@ -352,6 +378,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803211229014_UpdateMoviesGenre.resx">
       <DependentUpon>201803211229014_UpdateMoviesGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271448538_ModifiedMOvieAttributes.resx">
+      <DependentUpon>201803271448538_ModifiedMOvieAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271450230_ModifiedMovie.resx">
+      <DependentUpon>201803271450230_ModifiedMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271526496_removedtemprequired.resx">
+      <DependentUpon>201803271526496_removedtemprequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271542287_addGETDATEfunction.resx">
+      <DependentUpon>201803271542287_addGETDATEfunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803271618452_removedrequiredinmovies.resx">
+      <DependentUpon>201803271618452_removedrequiredinmovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803280331197_AddedValidationInMovieModel.resx">
+      <DependentUpon>201803280331197_AddedValidationInMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
