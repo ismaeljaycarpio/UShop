@@ -40,5 +40,56 @@ namespace UShop.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var listOfGenres = context.Genres.ToList();
+            var model = new MovieViewModel
+            {
+                Genres = listOfGenres
+            };
+
+            ViewBag.Title = "Create";
+
+            return View("MovieForm", model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movie == null)
+                return HttpNotFound();
+
+            var movieViewModel = new MovieViewModel
+            {
+                Movie = movie,
+                Genres = context.Genres.ToList()
+            };
+
+            ViewBag.Title = "Edit";
+            return View("MovieForm", movieViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0) //insert
+            {
+                movie.DateAdded = DateTime.Now;
+                context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = context.Movies.SingleOrDefault(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+            }
+                           
+            context.SaveChanges();
+            return RedirectToAction("Index", "Movie");
+        }
     }
 }

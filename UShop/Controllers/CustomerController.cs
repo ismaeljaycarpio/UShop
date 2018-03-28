@@ -46,6 +46,18 @@ namespace UShop.Controllers
         [HttpPost]
         public ActionResult Create(Customer customer) //model binding
         {
+            if(!ModelState.IsValid)
+            {
+                var viewModel = new NewCustomerViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = context.MembershipTypes.ToList()
+                };
+
+                return View("Create", viewModel);
+            }
+
+
             if(customer.Id == 0)
                 context.Customers.Add(customer);
             else

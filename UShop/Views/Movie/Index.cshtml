@@ -20,7 +20,7 @@
         @foreach (var m in Model)
         {
             <tr>
-                <td><a href="@Url.Action("Details", new { id = m.Id})">@m.Name</a></td>
+                <td><a href="@Url.Action("Edit", new { id = m.Id})">@m.Name</a></td>
                 <td>@m.Genre.Name</td>
             </tr>
         }
