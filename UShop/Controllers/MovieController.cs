@@ -50,8 +50,6 @@ namespace UShop.Controllers
                 Genres = listOfGenres
             };
 
-            ViewBag.Title = "Create";
-
             return View("MovieForm", model);
         }
 
@@ -61,9 +59,8 @@ namespace UShop.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var movieViewModel = new MovieViewModel
+            var movieViewModel = new MovieViewModel(movie)
             {
-                Movie = movie,
                 Genres = context.Genres.ToList()
             };
 
@@ -72,8 +69,17 @@ namespace UShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if(!ModelState.IsValid)
+            {
+                var viewModel = new MovieViewModel(movie)
+                {
+                    Genres = context.Genres.ToList()
+                };
+            }
+
             if (movie.Id == 0) //insert
             {
                 movie.DateAdded = DateTime.Now;

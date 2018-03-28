@@ -44,6 +44,7 @@ namespace UShop.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Customer customer) //model binding
         {
             if(!ModelState.IsValid)
