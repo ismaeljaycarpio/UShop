@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Web.Http;
 using UShop.Entities;
 using UShop.Models;
+using UShop.Dto;
+using AutoMapper;
 
 namespace UShop.Controllers.Api
 {
@@ -19,41 +21,47 @@ namespace UShop.Controllers.Api
         }
 
         // GET /api/customers
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return context.Customers.ToList();
+            return context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
         }
 
-
         // GET /api/customers/1
-        public Customer GetCustomers(int id)
+        public IHttpActionResult GetCustomers(int id)
         {
             var customer = context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
+                //throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            return customer;
+            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
 
         // POST /api/customers
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
+                //throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
 
             context.Customers.Add(customer);
             context.SaveChanges();
 
-            return customer;
+            customerDto.Id = customer.Id;
+
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto); //201 Created
         }
 
         // PUT /api/customers/1
         [HttpPut]
-        public void UpdateCustomer(int id, Customer customer)
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
+                //return BadRequest();
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
             var customerInDb = context.Customers.SingleOrDefault(c => c.Id == id);
@@ -61,26 +69,34 @@ namespace UShop.Controllers.Api
             if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            customerInDb.Name = customer.Name;
-            customerInDb.BirthDate = customer.BirthDate;
-            customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
-            customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            Mapper.Map<CustomerDto, Customer>(customerDto, customerInDb);
+
+            //ustomerInDb.Name = customer.Name;
+            //customerInDb.BirthDate = customer.BirthDate;
+            //customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+            //customerInDb.MembershipTypeId = customer.MembershipTypeId;
 
             context.SaveChanges();
+
+            return Ok(Mapper.Map<CustomerDto, Customer>(customerDto, customerInDb));
+            //return Ok();
         }
 
 
         // DELETE /api/customers/1
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public IHttpActionResult DeleteCustomer(int id)
         {
             var customerInDb = context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
+                //throw new HttpResponseException(HttpStatusCode.NotFound);
 
             context.Customers.Remove(customerInDb); //remove in-memory
             context.SaveChanges();
+
+            return Ok();
         }
 
 
