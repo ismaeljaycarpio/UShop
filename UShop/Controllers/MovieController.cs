@@ -28,8 +28,9 @@ namespace UShop.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            var model = context.Movies.Include(g => g.Genre).ToList();
-            return View(model);
+            //var model = context.Movies.Include(g => g.Genre).ToList();
+            //return View(model);
+            return View();
         }
 
         public ActionResult Details(int id)

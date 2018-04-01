@@ -27,8 +27,9 @@ namespace UShop.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            var model = context.Customers.Include(c => c.MembershipType).ToList();
-            return View(model);
+            //var model = context.Customers.Include(c => c.MembershipType).ToList();
+            //return View(model);
+            return View();
         }
 
         public ActionResult Create()

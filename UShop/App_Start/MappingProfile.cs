@@ -23,9 +23,11 @@ namespace UShop.App_Start
             Mapper.CreateMap<MovieDto, Movie>()
                 .ForMember(m => m.Id, opt => opt.Ignore());
 
+            //Membership type
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
 
-
-
+            //Genre
+            Mapper.CreateMap<Genre, GenreDto>();
         }
     }
 }

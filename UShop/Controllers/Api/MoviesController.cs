@@ -7,6 +7,7 @@ using System.Web.Http;
 using UShop.Models;
 using UShop.Dto;
 using UShop.Entities;
+using System.Data.Entity;
 using AutoMapper;
 
 
@@ -25,7 +26,10 @@ namespace UShop.Controllers.Api
         [HttpGet]
         public IEnumerable<MovieDto> GetMovies()
         {
-            return context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return context.Movies
+                .Include(a => a.Genre)
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
         }
 
         // GET /api/movies/1

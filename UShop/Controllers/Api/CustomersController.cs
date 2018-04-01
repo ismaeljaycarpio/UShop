@@ -8,6 +8,7 @@ using UShop.Entities;
 using UShop.Models;
 using UShop.Dto;
 using AutoMapper;
+using System.Data.Entity;
 
 namespace UShop.Controllers.Api
 {
@@ -23,7 +24,10 @@ namespace UShop.Controllers.Api
         // GET /api/customers
         public IEnumerable<CustomerDto> GetCustomers()
         {
-            return context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+            return context.Customers
+                .Include(c => c.MembershipType)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDto>);
         }
 
         // GET /api/customers/1

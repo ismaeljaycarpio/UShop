@@ -19,6 +19,8 @@ namespace UShop.Dto
         [Required]
         public byte MembershipTypeId { get; set; }
 
+        public MembershipTypeDto MembershipType { get; set; }
+
         //[Min18YearsIfAMember] //temp disable
         public DateTime? BirthDate { get; set; }
     }
