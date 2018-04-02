@@ -30,7 +30,9 @@ namespace UShop.Controllers
         {
             //var model = context.Movies.Include(g => g.Genre).ToList();
             //return View(model);
-            return View();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View();
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
@@ -43,6 +45,7 @@ namespace UShop.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles= RoleName.CanManageMovies)]
         public ActionResult Create()
         {
             var listOfGenres = context.Genres.ToList();
