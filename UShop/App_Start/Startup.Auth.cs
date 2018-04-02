@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using UShop.Models;
+using Microsoft.Owin.Security.Facebook;
 
 namespace UShop
 {
@@ -55,8 +56,16 @@ namespace UShop
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //   appId: "418317095278533",
+            //   appSecret: "442c484d94364c6286709669cb99fe9d");
+
+            FacebookAuthenticationOptions facebookOptions = new FacebookAuthenticationOptions();
+            facebookOptions.AppId = "418317095278533";
+            facebookOptions.AppSecret = "442c484d94364c6286709669cb99fe9d";
+            //facebookOptions.CallbackPath = new PathString("/Account/ExternalLoginCallback");
+            
+            app.UseFacebookAuthentication(facebookOptions);
+
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
