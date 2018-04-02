@@ -7,6 +7,7 @@ using UShop.Models;
 
 namespace UShop.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
