@@ -10,6 +10,7 @@ namespace UShop.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
+        //[OutputCache(Duration=50)] //action filter
         public ActionResult Index()
         {
             return View();
@@ -17,6 +18,8 @@ namespace UShop.Controllers
 
         public ActionResult About()
         {
+            //throw new Exception();
+
             ViewBag.Message = "Your application description page.";
 
             return View();

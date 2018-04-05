@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using UShop.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using UShop.ViewModels;
+using UShop.App_Start;
 
 namespace UShop.Controllers
 {

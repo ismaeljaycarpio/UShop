@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using UShop.Models;
 using Microsoft.Owin.Security.Facebook;
+using UShop.App_Start;
 
 namespace UShop
 {
